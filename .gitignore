@@ -1,8 +1,9 @@
 core.Microsoft*
 core.mongo*
-core.python*
+core.python*git 
 env.py
 __pycache__/
 *.py[cod]
 node_modules/
 .github/
+cred.json
