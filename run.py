@@ -12,13 +12,32 @@ SHEET = GSPREAD_CLIENT.open('love_sandwiches_proj')
 
 def get_sales_data():
     """
-    Get Sales digures input from user
+    Get Sales figures input from user
     """
     print("Please enter your sales data from the last market.")
     print("Data should be six numbers, seperated by commas.")
     print("Example: 10,20,30,40,50,60")
 
     data_str = input("Enter your data here: ")
-    print(f"The data provided is {data_str}")
+    
+    sales_data = data_str.split(",")
+    print(sales_data)
+    validate_data(sales_data)
+
+
+def validate_data(values):
+    """
+    This function will convert all string values to integeres
+    Raise a valueError if strings cannot be converted into int,
+    or if there isn't exactly 6 numbers
+    """
+    print(values)
+    try:
+        if len(values) != 6:
+            raise ValueError(
+                f"Exactly 6 values requires, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
 
 get_sales_data()
